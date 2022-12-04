@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <style>
+        .card{
+            background-color: cornsilk;
+        }
+        a.btn-first{
+            background-color: darkorange;
+            color: white;
+        }
+        a.btn-secondary:hover{
+          background-color: white;
+          color: black;
+          border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- <form action="/records" method="post">
+        <h3>
+            Enter the date of the diary entry you want to fetch <br>
+            In YYYY-MM-DD format.
+        </h3>
+        <input name="search" id="search" type="text" placeholder="YYYY-MM-DD" required><br>
+        <label for="search">Enter: </label>
+        <input type="text" name="search" id="search">
+        <button type="submit">Search</button>
+    </form> -->
+    <div class="container">
+        <% if(entries[0] == undefined){ %>
+            <h3>Oops! No entries found</h3>
+        <% } %> 
+        <% if(entries){ %>
+            <% entries.forEach(entry => { %>
+                <div class="card mt-4 col-sm-3 text-center d-inline-block">
+                    <div class="card-body">
+                        <h3 class="card-title"> <%= entry.entryDate %> </h3>
+                        <div class="card-subtitle text-muted mt-2 opacity-75"> <%= entry.description.slice(0,140) %>...... </div>
+                        <div class="mt-1"> 
+                            <a href="/records/<%= entry.id %>" class="btn btn-first">Read more</a>
+                            <a href="/delete/<%= entry.id %>" class="btn btn-secondary">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>   
+        <% } %>
+    </div>
+</body>
+</html>

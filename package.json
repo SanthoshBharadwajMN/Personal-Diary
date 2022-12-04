@@ -1,0 +1,23 @@
+{
+  "name": "trial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "date-format-conversion": "^2.0.8",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "fs-extra": "^10.1.0",
+    "mongoose": "^6.6.4",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
